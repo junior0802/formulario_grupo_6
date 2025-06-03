@@ -9,29 +9,55 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Logo y encabezado centrado
-ucv_logo_path = "img/ucv_logo.png"
-amazon_logo_path = "img/amazon_logo.png"
-
 # Mostrar logos e información centrada
-col1, col2, col3 = st.columns([1, 2, 1])
+st.markdown("""
+<style>
+/* Encabezado principal */
+.header-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-with col1:
-    if os.path.exists(ucv_logo_path):
-        st.image(ucv_logo_path, width=120)
+/* Logo UCV adaptable */
+.ucv-logo {
+    max-width: 30vw;  /* máximo 30% del ancho de la ventana */
+    height: auto;
+    margin-bottom: 10px;
+}
 
-with col2:
-    st.markdown("""
-    <div style='text-align: center;'>
-        <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
-        <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
-        <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
-    </div>
-    """, unsafe_allow_html=True)
+/* Títulos grandes y bonitos */
+.header-title {
+    color: #4A90E2;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-with col3:
-    if os.path.exists(amazon_logo_path):
-        st.image(amazon_logo_path, width=70)
+.header-subtitle {
+    font-size: 24px;
+    margin: 5px 0 15px 0;
+}
+
+/* Logo Amazon centrado y mediano */
+.amazon-logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    height: auto;
+}
+</style>
+
+<div class="header-container">
+    <img src="img/ucv_logo.png" alt="Logo UCV" class="ucv-logo">
+    <h1 class="header-title">UNIVERSIDAD CÉSAR VALLEJO</h1>
+    <h2 class="header-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+    <h3 style="color:#4A90E2; font-weight: 600; font-size: 22px;">
+        📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
+    </h3>
+    <img src="img/amazon_logo.png" alt="Logo Amazon" class="amazon-logo">
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -189,32 +215,29 @@ Estas capacidades pueden ser implementadas en sistemas reales para apoyar la tom
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# Agradecimientos
+# Sección Agradecimientos
 st.markdown("""
-<div style='text-align: center; font-family: Arial, sans-serif; margin-top: 50px;'>
+<p style='font-size:18px; text-align:center;'>
+    <span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</em>
+</p>
 
-    <p style='font-size:18px;'><span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</em></p>
-    <br>
+<h4 style='text-align:center;'>✍️ <u>AUTORES</u></h4>
+<p style='text-align:center;'>
+    👨‍💻 <b>Junior Alvaro Pusaclla</b><br>
+    👨‍💻 <b>Luis Atiro Vargas</b><br>
+    👩‍💻 <b>Carmen Campos Domínguez</b><br>
+    👨‍💻 <b>Cleber Ramos Ramos</b>
+</p>
 
-    <h4>✍️ <u>AUTORES</u></h4>
-    <p>
-        👨‍💻 <b>Junior Alvaro Pusaclla</b><br>
-        👨‍💻 <b>Luis Atiro Vargas</b><br>
-        👩‍💻 <b>Carmen Campos Domínguez</b><br>
-        👨‍💻 <b>Cleber Ramos Ramos</b>
-    </p>
-    <br>
+<h4 style='text-align:center;'>🧑‍🏫 <u>ASESORES</u></h4>
+<p style='text-align:center;'>
+    🧠 <b>Dr. Jorge Isaac Necochea Chamorro</b><br>
+    🧠 <b>Mg. Marco Antonio Soto Martínez</b>
+</p>
 
-    <h4>🧑‍🏫 <u>ASESORES</u></h4>
-    <p>
-        🧠 <b>Dr. Jorge Isaac Necochea Chamorro</b><br>
-        🧠 <b>Mg. Marco Antonio Soto Martínez</b>
-    </p>
-    <br>
+<p style='text-align:center; color: gray; font-size: 16px;'>📍 Lima – Perú • 🗓️ 2025</p>
 
-    <p style='color: gray; font-size: 16px;'>📍 Lima – Perú • 🗓️ 2025</p>
-
-</div>
+<p style='text-align:center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>
 """, unsafe_allow_html=True)
 
 # Footer
