@@ -9,22 +9,19 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Logos y encabezado (centrado)
-col1, col2, col3 = st.columns([1, 4, 1])
-with col1:
-    if os.path.exists("img/ucv_logo.png"):
-        st.image("img/ucv_logo.png", width=100)
-with col2:
-    st.markdown("""
-    <div style='text-align: center;'>
-        <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
-        <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
-        <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
-    </div>
-    """, unsafe_allow_html=True)
-with col3:
-    if os.path.exists("img/amazon_logo.png"):
-        st.image("img/amazon_logo.png", width=70)
+# Logo y encabezado centrado
+ucv_logo_path = "img/ucv_logo.png"
+amazon_logo_path = "img/amazon_logo.png"
+
+st.markdown("""
+<div style='text-align: center;'>
+    <img src='img/ucv_logo.png' width='120'><br>
+    <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
+    <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+    <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
+    <img src='img/amazon_logo.png' width='70'>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -184,28 +181,28 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 # Agradecimientos
 st.markdown("""
-<div style="text-align: center; font-family: Arial, sans-serif; margin-top: 50px;">
+<div style='text-align: center; font-family: Arial, sans-serif; margin-top: 50px;'>
 
-    <p style="font-size:18px;">🙏 <i>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</i></p>
+    <p style='font-size:18px;'><span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</em></p>
     <br>
 
     <h4>✍️ <u>AUTORES</u></h4>
     <p>
-        👨‍💻 <b>Alvaro Pusaclla, Junior</b><br>
-        👨‍💻 <b>Atiro Vargas, Luis</b><br>
-        👩‍💻 <b>Campos Dominguez, Carmen</b><br>
-        👨‍💻 <b>Ramos Ramos, Cleber</b>
+        👨‍💻 <b>Junior Alvaro Pusaclla</b><br>
+        👨‍💻 <b>Luis Atiro Vargas</b><br>
+        👩‍💻 <b>Carmen Campos Domínguez</b><br>
+        👨‍💻 <b>Cleber Ramos Ramos</b>
     </p>
     <br>
 
     <h4>🧑‍🏫 <u>ASESORES</u></h4>
     <p>
-        🧠 <b>Dr. Necochea Chamorro, Jorge Isaac</b><br>
-        🧠 <b>Mg. Soto Martinez, Marco Antonio</b>
+        🧠 <b>Dr. Jorge Isaac Necochea Chamorro</b><br>
+        🧠 <b>Mg. Marco Antonio Soto Martínez</b>
     </p>
     <br>
 
-    <p style="color: gray; font-size: 16px;">📍 Lima – Perú • 🗓️ 2025</p>
+    <p style='color: gray; font-size: 16px;'>📍 Lima – Perú • 🗓️ 2025</p>
 
 </div>
 """, unsafe_allow_html=True)
