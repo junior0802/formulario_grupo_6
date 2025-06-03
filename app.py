@@ -184,3 +184,31 @@ st.markdown(
     "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>",
     unsafe_allow_html=True
 )
+
+# Agradecimiento + Autores, Asesores y Año (centrado con emojis)
+st.markdown("""
+<div style="text-align: center; font-family: Arial, sans-serif; margin-top: 50px;">
+
+    <p style="font-size:18px;">🙏 <i>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</i></p>
+    <br>
+
+    <h4>✍️ <u>AUTORES</u></h4>
+    <p>
+        👨‍💻 <b>Alvaro Pusaclla, Junior</b><br>
+        👨‍💻 <b>Atiro Vargas, Luis</b><br>
+        👩‍💻 <b>Campos Dominguez, Carmen</b><br>
+        👨‍💻 <b>Ramos Ramos, Cleber</b>
+    </p>
+    <br>
+
+    <h4>🧑‍🏫 <u>ASESORES</u></h4>
+    <p>
+        🧠 <b>Dr. Necochea Chamorro, Jorge Isaac</b><br>
+        🧠 <b>Mg. Soto Martinez, Marco Antonio</b>
+    </p>
+    <br>
+
+    <p style="color: gray; font-size: 16px;">📍 Lima – Perú • 🗓️ 2025</p>
+
+</div>
+""", unsafe_allow_html=True)
