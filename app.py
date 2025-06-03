@@ -50,11 +50,11 @@ st.markdown("""
 
 <div class="header-container">
     <img src="img/ucv_logo.png" alt="Logo UCV" class="ucv-logo">
-    <h1 class="header-title">UNIVERSIDAD CÉSAR VALLEJO</h1>
-    <h2 class="header-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
-    <h3 style="color:#4A90E2; font-weight: 600; font-size: 22px;">
+    <h2 class="header-title">UNIVERSIDAD CÉSAR VALLEJO</h2>
+    <h3 class="header-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h3>
+    <h1 style="color:#4A90E2; font-weight: 600; font-size: 22px;">
         📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
-    </h3>
+    </h1>
     <img src="img/amazon_logo.png" alt="Logo Amazon" class="amazon-logo">
 </div>
 """, unsafe_allow_html=True)
@@ -239,9 +239,3 @@ st.markdown("""
 
 <p style='text-align:center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>
 """, unsafe_allow_html=True)
-
-# Footer
-st.markdown(
-    "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>",
-    unsafe_allow_html=True
-)
