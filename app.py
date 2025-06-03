@@ -4,7 +4,7 @@ import os
 
 # Configurar página
 st.set_page_config(
-    page_title="Clustering de Reseñas - AMAZON",
+    page_title="GRUPO 6",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
@@ -12,54 +12,46 @@ st.set_page_config(
 # Mostrar logos e información centrada
 st.markdown("""
 <style>
-/* Encabezado principal */
 .header-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
-
-/* Logo UCV adaptable */
-.ucv-logo {
-    max-width: 30vw;  /* máximo 30% del ancho de la ventana */
-    height: auto;
-    margin-bottom: 10px;
-}
-
-/* Títulos grandes y bonitos */
-.header-title {
-    color: #4A90E2;
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.header-subtitle {
-    font-size: 24px;
-    margin: 5px 0 15px 0;
-}
-
-/* Logo Amazon centrado y mediano */
-.amazon-logo {
-    display: block;
-    margin: 0 auto;
+.ucv-logo, .amazon-logo {
     max-width: 150px;
     height: auto;
+    margin: 10px auto;
+}
+.header-ucv {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1A1A1A;
+    margin: 0;
+}
+.header-escuela {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    color: #555;
+}
+.header-proyecto {
+    font-size: 36px;
+    font-weight: 800;
+    color: #4A90E2;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 </style>
 
 <div class="header-container">
-    <img src="img/ucv_logo.png" alt="Logo UCV" class="ucv-logo">
-    <h2 class="header-title">UNIVERSIDAD CÉSAR VALLEJO</h2>
-    <h3 class="header-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h3>
-    <h1 style="color:#4A90E2; font-weight: 600; font-size: 22px;">
+    <img src="img/ucv_logo.png" class="ucv-logo" alt="Logo UCV">
+    <p class="header-ucv">UNIVERSIDAD CÉSAR VALLEJO</p>
+    <p class="header-escuela">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>
+    <h1 class="header-proyecto">
         📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
     </h1>
-    <img src="img/amazon_logo.png" alt="Logo Amazon" class="amazon-logo">
+    <img src="img/amazon_logo.png" class="amazon-logo" alt="Logo Amazon">
 </div>
 """, unsafe_allow_html=True)
-
-st.markdown("<hr>", unsafe_allow_html=True)
 
 # Sección I: Introducción
 st.markdown("<h2 style='text-align: center;'>I. INTRODUCCIÓN</h2>", unsafe_allow_html=True)
