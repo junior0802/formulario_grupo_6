@@ -145,7 +145,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center;'>IV. CONCLUSIONES</h2>", unsafe_allow_html=True)
 
 # Punto i
-st.markdown("#### I. CONCLUSIONES DEL AGRUPAMIENTO")
+st.markdown("#### 4.1. CONCLUSIONES DEL AGRUPAMIENTO")
 if os.path.exists("img/conclusion_i.png"):
     st.image("img/conclusion_i.png", use_container_width=True)
 st.markdown("""
@@ -156,7 +156,7 @@ Este conocimiento resulta clave para estrategias de personalización y retroalim
 """, unsafe_allow_html=True)
 
 # Punto ii
-st.markdown("#### II. CONCLUSIONES DEL MODELO SUPERVISADO")
+st.markdown("#### 4.2. CONCLUSIONES DEL MODELO SUPERVISADO")
 if os.path.exists("img/conclusion_ii.png"):
     st.image("img/conclusion_ii.png", use_container_width=True)
 st.markdown("""
