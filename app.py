@@ -9,37 +9,36 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Mostrar logos e información centrada
+# Mostrar logo UCV (centrado)
+st.image("img/ucv_logo.png", use_column_width=True)
+
+# Títulos institucionales
 st.markdown("""
 <style>
 .title-institucional {
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bold;
     text-align: center;
     margin: 10px 0;
 }
 .title-proyecto {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 80px;
+    font-weight: 900;
     color: #4A90E2;
     text-align: center;
-    margin: 30px 0 20px 0;
+    margin: 40px 0 30px 0;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Mostrar logo UCV (centrado, tamaño ajustado)
-st.image("img/ucv_logo.png", use_column_width=True)
-
-# Textos institucionales grandes
 st.markdown("<p class='title-institucional'>UNIVERSIDAD CÉSAR VALLEJO</p>", unsafe_allow_html=True)
 st.markdown("<p class='title-institucional'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>", unsafe_allow_html=True)
 
-# Título del proyecto (más pequeño que los anteriores)
+# Título del proyecto
 st.markdown("<p class='title-proyecto'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
 
-# Logo Amazon (centrado, tamaño fijo)
-st.image("img/amazon_logo.png", width=200)
+# Logo Amazon (centrado, tamaño pequeño)
+st.image("img/amazon_logo.png", width=150)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -199,6 +198,7 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 # Sección Agradecimientos
 st.markdown("""
+<hr>
 <p style='font-size:18px; text-align:center;'>
     <span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</em>
 </p>
@@ -219,8 +219,8 @@ st.markdown("""
 
 <p style='text-align:center; color: gray; font-size: 16px;'>📍 Lima – Perú • 🗓️ 2025</p>
 
-st.markdown("<hr>", unsafe_allow_html=True)
-st.markdown("<hr>", unsafe_allow_html=True)
-
-<p style='text-align:center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>
+<hr>
+<p style='text-align:center; color: gray; font-size: 16px; margin-top: 40px;'>
+    Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo
+</p>
 """, unsafe_allow_html=True)
