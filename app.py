@@ -14,26 +14,28 @@ st.markdown("""
 <style>
 .header-container {
     text-align: center;
-    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 .ucv-logo, .amazon-logo {
-    max-width: 150px;
+    width: 150px;
     height: auto;
     margin: 10px auto;
+    display: block;
 }
-.header-ucv {
-    font-size: 24px;
+.text-ucv {
+    font-size: 28px;
     font-weight: bold;
     color: #1A1A1A;
-    margin: 0;
+    margin: 10px 0 5px 0;
 }
-.header-escuela {
-    font-size: 20px;
+.text-escuela {
+    font-size: 24px;
     font-weight: 600;
-    margin: 5px 0 10px 0;
-    color: #555;
+    color: #1A1A1A;
+    margin: 0 0 20px 0;
 }
-.header-proyecto {
+.title-principal {
     font-size: 36px;
     font-weight: 800;
     color: #4A90E2;
@@ -44,14 +46,16 @@ st.markdown("""
 
 <div class="header-container">
     <img src="img/ucv_logo.png" class="ucv-logo" alt="Logo UCV">
-    <p class="header-ucv">UNIVERSIDAD CÉSAR VALLEJO</p>
-    <p class="header-escuela">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>
-    <h1 class="header-proyecto">
+    <p class="text-ucv">UNIVERSIDAD CÉSAR VALLEJO</p>
+    <p class="text-escuela">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>
+    <p class="title-principal">
         📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
-    </h1>
+    </p>
     <img src="img/amazon_logo.png" class="amazon-logo" alt="Logo Amazon">
 </div>
 """, unsafe_allow_html=True)
+
+st.markdown("<hr>", unsafe_allow_html=True)
 
 # Sección I: Introducción
 st.markdown("<h2 style='text-align: center;'>I. INTRODUCCIÓN</h2>", unsafe_allow_html=True)
