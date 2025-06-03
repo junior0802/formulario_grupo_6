@@ -9,26 +9,26 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Logo de la Universidad
+# Logo y encabezado centrado
 ucv_logo_path = "img/ucv_logo.png"
-if os.path.exists(ucv_logo_path):
-    st.image(ucv_logo_path, width=150)
-
-# Título general y logo de Amazon debajo
-st.markdown("""
-<h1 style='text-align: center; color:#4A90E2; font-size: 30px;'>
-📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
-</h1>
-""", unsafe_allow_html=True)
-
 amazon_logo_path = "img/amazon_logo.png"
-if os.path.exists(amazon_logo_path):
-    st.image(amazon_logo_path, width=80)
+
+st.markdown("""
+<div style='text-align: center;'>
+    <img src='img/ucv_logo.png' width='120'><br>
+    <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
+    <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+    <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
+    <img src='img/amazon_logo.png' width='70'>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # Sección I: Introducción
 st.markdown("<h2 style='text-align: center;'>I. INTRODUCCIÓN</h2>", unsafe_allow_html=True)
+st.image("img/intro.png", use_container_width=True)  # Imagen opcional
+
 st.markdown("""
 <div style='text-align: justify;'>
 En la actualidad, las plataformas de comercio electrónico como Amazon generan una gran cantidad de datos, entre ellos las reseñas de los productos. 
@@ -42,6 +42,8 @@ st.markdown("<hr>", unsafe_allow_html=True)
 
 # Sección II: Metodología
 st.markdown("<h2 style='text-align: center;'>II. METODOLOGÍA</h2>", unsafe_allow_html=True)
+st.image("img/metodologia.png", use_container_width=True)
+
 st.markdown("""
 <div style='text-align: justify;'>
 La metodología empleada en este proyecto se basa en el uso de técnicas avanzadas de <b>análisis de texto</b> y <b>aprendizaje automático</b> para procesar y clasificar las reseñas de productos. 
@@ -58,32 +60,66 @@ st.markdown("<hr>", unsafe_allow_html=True)
 # Sección III: Resultados y Discusión
 st.markdown("<h2 style='text-align: center;'>III. RESULTADOS Y DISCUSIÓN</h2>", unsafe_allow_html=True)
 
-# Lista de gráficos (Gráfico 6 removido)
 graficos = [
     {
         "titulo": "Gráfico 1: Análisis de Sentimientos por Categoría de Producto",
         "archivo": "img/grafico_1.png",
-        "descripcion": """<div style='text-align: justify;'>...</div>"""
+        "descripcion": """
+        <div style='text-align: justify;'>
+        Este gráfico muestra cómo se distribuyen los sentimientos (positivos, negativos y neutros) en distintas categorías de productos, como tecnología, hogar o ropa. La visualización evidencia que las categorías tecnológicas presentan una mayor proporción de reseñas negativas en comparación con los productos para el hogar, que tienden a tener opiniones más favorables. Esta segmentación permite identificar áreas con oportunidades de mejora o productos con alta satisfacción del cliente.
+        </div>
+        <div style='text-align: justify;'>
+        A partir de este análisis, se pueden trazar estrategias específicas de atención al cliente, desarrollo de productos y marketing. También se demuestra la utilidad del modelo de clustering al permitir el análisis automático y visual de grandes volúmenes de opiniones, revelando patrones significativos por categoría de producto.
+        </div>
+        """
     },
     {
         "titulo": "Gráfico 2: Palabras Clave en Reseñas Positivas",
         "archivo": "img/grafico_2.png",
-        "descripcion": """<div style='text-align: justify;'>...</div>"""
+        "descripcion": """
+        <div style='text-align: justify;'>
+        El gráfico de palabras clave extraídas de reseñas positivas muestra términos frecuentemente utilizados como “excelente”, “rápido”, “calidad” o “recomendado”. Estas palabras clave reflejan los aspectos más valorados por los usuarios, siendo útiles para destacar fortalezas en la descripción de productos y reforzar estrategias de marketing centradas en los atributos preferidos por los consumidores.
+        </div>
+        <div style='text-align: justify;'>
+        Esta visualización fue posible gracias al análisis de frecuencia posterior al preprocesamiento del texto. Su interpretación aporta valor estratégico al reconocer qué factores contribuyen a una experiencia positiva, orientando la toma de decisiones sobre mejoras de productos o campañas enfocadas en la satisfacción del cliente.
+        </div>
+        """
     },
     {
         "titulo": "Gráfico 3: Evaluación del Modelo de Clasificación Stacking",
         "archivo": "img/grafico_3.png",
-        "descripcion": """<div style='text-align: justify;'>...</div>"""
+        "descripcion": """
+        <div style='text-align: justify;'>
+        El modelo Stacking alcanzó los mejores valores de precisión, recall y F1-score en comparación con otros clasificadores individuales. El gráfico presenta métricas detalladas del rendimiento del modelo, evidenciando su capacidad de generalizar correctamente la clasificación de sentimientos en reseñas previamente no vistas.
+        </div>
+        <div style='text-align: justify;'>
+        La estrategia de combinar múltiples modelos (como Random Forest y SVM) permitió mejorar la robustez y exactitud de las predicciones. Este resultado refuerza la importancia de los enfoques de ensamblado (ensemble learning) para resolver problemas complejos de análisis de texto en comercio electrónico.
+        </div>
+        """
     },
     {
         "titulo": "Gráfico 4: Embeddings de Reseñas en Espacio Reducido",
         "archivo": "img/grafico_4.png",
-        "descripcion": """<div style='text-align: justify;'>...</div>"""
+        "descripcion": """
+        <div style='text-align: justify;'>
+        Este gráfico visualiza las reseñas en un espacio bidimensional reducido usando t-SNE, lo que permite observar la agrupación de reseñas con sentimientos similares. Se aprecia una clara separación entre clústeres positivos y negativos, lo que demuestra que las representaciones vectoriales generadas por Word2Vec capturan adecuadamente la semántica de los textos.
+        </div>
+        <div style='text-align: justify;'>
+        La interpretación gráfica de los embeddings es esencial para validar la calidad del agrupamiento realizado. Esta técnica facilita la comprensión de cómo se estructuran los datos internamente y permite validar si los modelos están capturando patrones relevantes en las opiniones de los usuarios.
+        </div>
+        """
     },
     {
         "titulo": "Gráfico 5: Comparación Global de Modelos Clasificadores",
         "archivo": "img/grafico_5.png",
-        "descripcion": """<div style='text-align: justify;'>...</div>"""
+        "descripcion": """
+        <div style='text-align: justify;'>
+        En este gráfico se presenta una comparación directa entre distintos modelos de clasificación aplicados al análisis de sentimientos. El modelo Stacking se destaca claramente por su rendimiento global, superando a métodos como Naive Bayes, SVM y Árboles de Decisión en la mayoría de las métricas.
+        </div>
+        <div style='text-align: justify;'>
+        Esta evaluación integral permite tomar decisiones informadas sobre qué modelo implementar en entornos reales. La capacidad de predecir correctamente los sentimientos es esencial en sistemas de recomendación y monitoreo automático de la experiencia del cliente.
+        </div>
+        """
     }
 ]
 
@@ -99,10 +135,9 @@ if os.path.exists(ruta):
 else:
     st.warning("⚠️ No se encontró la imagen.")
 
-# Mostrar título y descripción
-st.markdown(f"### {graficos[indice]['titulo']}")
-if graficos[indice]["descripcion"]:
-    st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
+# Mostrar título centrado
+st.markdown(f"<h3 style='text-align: center;'>{graficos[indice]['titulo']}</h3>", unsafe_allow_html=True)
+st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -110,10 +145,9 @@ st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center;'>IV. CONCLUSIONES</h2>", unsafe_allow_html=True)
 
 # Punto i
-st.markdown("#### i. Conclusiones del Agrupamiento")
-grafico_i = "img/conclusion_i.png"  # reemplaza con tu imagen real
-if os.path.exists(grafico_i):
-    st.image(grafico_i, use_container_width=True)
+st.markdown("#### I. CONCLUSIONES DEL AGRUPAMIENTO")
+if os.path.exists("img/conclusion_i.png"):
+    st.image("img/conclusion_i.png", use_container_width=True)
 st.markdown("""
 <div style='text-align: justify;'>
 El análisis de agrupamiento permitió identificar patrones consistentes en las opiniones de los usuarios, revelando segmentos diferenciados por experiencias positivas, neutras o negativas. 
@@ -122,10 +156,9 @@ Este conocimiento resulta clave para estrategias de personalización y retroalim
 """, unsafe_allow_html=True)
 
 # Punto ii
-st.markdown("#### ii. Conclusiones del Modelo Supervisado")
-grafico_ii = "img/conclusion_ii.png"  # reemplaza con tu imagen real
-if os.path.exists(grafico_ii):
-    st.image(grafico_ii, use_container_width=True)
+st.markdown("#### II. CONCLUSIONES DEL MODELO SUPERVISADO")
+if os.path.exists("img/conclusion_ii.png"):
+    st.image("img/conclusion_ii.png", use_container_width=True)
 st.markdown("""
 <div style='text-align: justify;'>
 Los modelos de clasificación, en especial Stacking, mostraron una capacidad superior para predecir la polaridad de las reseñas con alta precisión, sugiriendo su aplicabilidad para tareas reales de análisis automático de opiniones.
@@ -133,9 +166,16 @@ Los modelos de clasificación, en especial Stacking, mostraron una capacidad sup
 """, unsafe_allow_html=True)
 
 # Gráfico final decorativo
-grafico_6 = "img/grafico_6.png"
-if os.path.exists(grafico_6):
-    st.image(grafico_6, use_container_width=True)
+if os.path.exists("img/grafico_6.png"):
+    st.image("img/grafico_6.png", use_container_width=True)
+
+# Conclusión general
+st.markdown("""
+<div style='text-align: justify;'>
+En conclusión, este proyecto ha demostrado que es posible aprovechar el poder del machine learning para extraer conocimiento útil de grandes volúmenes de reseñas en comercio electrónico. A través del uso combinado de modelos de agrupamiento y clasificación, se ha logrado no solo segmentar las opiniones de los clientes, sino también predecir su sentimiento con alta precisión. 
+Estas capacidades pueden ser implementadas en sistemas reales para apoyar la toma de decisiones en ventas, marketing y atención al cliente, contribuyendo así a mejorar la experiencia del usuario en plataformas digitales como Amazon.
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
