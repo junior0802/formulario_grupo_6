@@ -9,40 +9,51 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Estilos CSS para títulos
 st.markdown("""
 <style>
-.title-general {
-    font-size: 72px;  /* Más grande que los demás */
-    font-weight: 900;
-    color: #4A90E2;
-    text-align: center;
-    margin: 30px 0 20px 0;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
-.title-institucional {
-    font-size: 56px;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0;
+
+.animated-title {
+  font-size: 90px;  /* Muy grande */
+  font-weight: 900;
+  text-align: center;
+  color: #4A90E2;
+  animation: fadeInUp 1.5s ease forwards;
+  margin: 0;
 }
-.title-seccion {
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin: 30px 0 15px 0;
+
+.animated-subtitle {
+  font-size: 70px;
+  font-weight: 800;
+  text-align: center;
+  color: #222222;
+  animation: fadeInUp 1.8s ease forwards;
+  margin: 0;
+}
+
+.animated-subsubtitle {
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+  color: #222222;
+  animation: fadeInUp 2.1s ease forwards;
+  margin: 0 0 40px 0;
 }
 </style>
+
+<h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h1>
+<h2 class="animated-subtitle">UNIVERSIDAD CÉSAR VALLEJO</h2>
+<h3 class="animated-subsubtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h3>
 """, unsafe_allow_html=True)
-
-# Logo UCV centrado y ajustado
-st.image("img/ucv_logo.png", use_container_width=True)
-
-# Títulos institucionales
-st.markdown("<p class='title-institucional'>UNIVERSIDAD CÉSAR VALLEJO</p>", unsafe_allow_html=True)
-st.markdown("<p class='title-institucional'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>", unsafe_allow_html=True)
-
-# Título general, mucho más grande
-st.markdown("<p class='title-general'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
