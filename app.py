@@ -20,15 +20,37 @@ st.markdown("""
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.logo-responsive {
+    max-width: 90%;
+    height: auto;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# Mostrar logos e información centrada
-st.image("img/ucv_logo.png", width=250)
+# Logo UCV responsivo y centrado
+st.markdown("""
+<div class="logo-container">
+    <img src="img/ucv_logo.png" class="logo-responsive">
+</div>
+""", unsafe_allow_html=True)
+
+# Textos institucionales
 st.markdown("<h1 style='text-align: center; font-size: 48px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; font-size: 40px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; font-size: 38px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>", unsafe_allow_html=True)
+
+# Título del proyecto
 st.markdown("<p class='title-principal'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
-st.image("img/amazon_logo.png", width=250)
+
+# Logo de Amazon centrado con tamaño fijo
+st.markdown("""
+<div class="logo-container">
+    <img src="img/amazon_logo.png" width="200">
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
