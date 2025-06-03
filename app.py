@@ -26,15 +26,6 @@ st.markdown("""
   }
 }
 
-.animated-subsubtitle {
-  font-size: 60px;
-  font-weight: 700;
-  text-align: center;
-  color: #222222;
-  animation: fadeInUp 1s ease forwards;
-  margin: 10px 0 0 0;
-}
-
 .animated-subtitle {
   font-size: 70px;
   font-weight: 800;
@@ -54,7 +45,6 @@ st.markdown("""
 }
 </style>
 
-<h3 class="animated-subsubtitle">UNIVERSIDAD CÉSAR VALLEJO</h3>
 <h2 class="animated-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
 <h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h1>
 """, unsafe_allow_html=True)
