@@ -12,46 +12,23 @@ st.set_page_config(
 # Mostrar logos e información centrada
 st.markdown("""
 <style>
-.header-container {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 30px;
-}
-.ucv-logo, .amazon-logo {
-    width: 150px;
-    height: auto;
-    margin: 10px auto;
-    display: block;
-}
-.text-ucv {
-    font-size: 40px;
-    font-weight: bold;
-    margin: 10px 0 5px 0;
-}
-.text-escuela {
-    font-size: 40px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
-}
 .title-principal {
-    font-size: 50px;
-    font-weight: 800;
+    font-size: 60px;
+    font-weight: 900;
     color: #4A90E2;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 </style>
-
-<div class="header-container">
-    <img src="img/ucv_logo.png" class="ucv-logo" alt="Logo UCV">
-    <p class="text-ucv">UNIVERSIDAD CÉSAR VALLEJO</p>
-    <p class="text-escuela">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>
-    <p class="title-principal">
-        📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
-    </p>
-    <img src="img/amazon_logo.png" class="amazon-logo" alt="Logo Amazon">
-</div>
 """, unsafe_allow_html=True)
+
+# Mostrar logos e información centrada
+st.image("img/ucv_logo.png", width=250)
+st.markdown("<h1 style='text-align: center; font-size: 48px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; font-size: 40px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>", unsafe_allow_html=True)
+st.markdown("<p class='title-principal'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
+st.image("img/amazon_logo.png", width=250)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
