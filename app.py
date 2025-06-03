@@ -12,45 +12,34 @@ st.set_page_config(
 # Mostrar logos e información centrada
 st.markdown("""
 <style>
-.title-principal {
+.title-institucional {
     font-size: 60px;
-    font-weight: 900;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+.title-proyecto {
+    font-size: 48px;
+    font-weight: 800;
     color: #4A90E2;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.logo-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.logo-responsive {
-    max-width: 90%;
-    height: auto;
+    margin: 30px 0 20px 0;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Logo UCV responsivo y centrado
-st.markdown("""
-<div class="logo-container">
-    <img src="img/ucv_logo.png" class="logo-responsive">
-</div>
-""", unsafe_allow_html=True)
+# Mostrar logo UCV (centrado, tamaño ajustado)
+st.image("img/ucv_logo.png", use_column_width=True)
 
-# Textos institucionales
-st.markdown("<h1 style='text-align: center; font-size: 48px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; font-size: 38px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>", unsafe_allow_html=True)
+# Textos institucionales grandes
+st.markdown("<p class='title-institucional'>UNIVERSIDAD CÉSAR VALLEJO</p>", unsafe_allow_html=True)
+st.markdown("<p class='title-institucional'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</p>", unsafe_allow_html=True)
 
-# Título del proyecto
-st.markdown("<p class='title-principal'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
+# Título del proyecto (más pequeño que los anteriores)
+st.markdown("<p class='title-proyecto'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</p>", unsafe_allow_html=True)
 
-# Logo de Amazon centrado con tamaño fijo
-st.markdown("""
-<div class="logo-container">
-    <img src="img/amazon_logo.png" width="200">
-</div>
-""", unsafe_allow_html=True)
+# Logo Amazon (centrado, tamaño fijo)
+st.image("img/amazon_logo.png", width=200)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
