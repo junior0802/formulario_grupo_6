@@ -2,21 +2,21 @@ import streamlit as st
 from PIL import Image
 import os
 
-# Configuración de página
+# Configurar página
 st.set_page_config(
     page_title="Clustering de Reseñas - AMAZON",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# Título y logo
+# Título y logo de Amazon
 col1, col2 = st.columns([6, 1])
 with col1:
     st.markdown("""
-<h1 style='text-align: center; color:#4A90E2; font-size: 30px;'>
-📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
-</h1>
-""", unsafe_allow_html=True)
+    <h1 style='text-align: center; color:#4A90E2; font-size: 30px;'>
+    📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
+    </h1>
+    """, unsafe_allow_html=True)
 with col2:
     logo_path = "img/amazon_logo.png"
     if os.path.exists(logo_path):
@@ -24,14 +24,45 @@ with col2:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# Lista de gráficos con títulos y descripciones extendidas
+# Sección I: Introducción
+st.markdown("<h2 style='text-align: center;'>I. INTRODUCCIÓN</h2>", unsafe_allow_html=True)
+st.markdown("""
+<div style='text-align: justify;'>
+En la actualidad, las plataformas de comercio electrónico como Amazon generan una gran cantidad de datos, entre ellos las reseñas de los productos. 
+Estas reseñas son una fuente valiosa de información para las empresas, ya que reflejan la satisfacción del cliente y pueden ser utilizadas para mejorar productos y servicios.
+Este estudio se centra en la creación de un sistema automatizado de análisis de reseñas utilizando técnicas de **machine learning**, con el objetivo de agrupar reseñas similares y clasificarlas en diferentes categorías de sentimientos.
+El objetivo principal de este proyecto es desarrollar un sistema de agrupamiento y clasificación utilizando un enfoque **semi-supervisado**, que permita predecir los sentimientos de los usuarios sobre los productos y facilitar la mejora continua en la calidad de los mismos.
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+# Sección II: Metodología
+st.markdown("<h2 style='text-align: center;'>II. METODOLOGÍA</h2>", unsafe_allow_html=True)
+st.markdown("""
+<div style='text-align: justify;'>
+La metodología empleada en este proyecto se basa en el uso de técnicas avanzadas de **análisis de texto** y **aprendizaje automático** para procesar y clasificar las reseñas de productos. 
+Se siguió un enfoque de **clustering**, utilizando algoritmos como **K-means** y **GMM (Gaussian Mixture Models)**, los cuales permiten agrupar las reseñas en función de su similitud semántica.
+
+Para el preprocesamiento de las reseñas, se utilizó el modelo de **embedding** de palabras **Word2Vec** para representar las reseñas en vectores numéricos. Posteriormente, se aplicaron técnicas de **reducción de dimensionalidad** como **PCA** y **t-SNE** para visualizar los grupos formados por las reseñas.
+
+Además, se evaluaron distintos modelos de clasificación supervisada, utilizando un enfoque de **Stacking** para mejorar la precisión del sistema. Se realizaron pruebas con diferentes métricas, como **precisión**, **recall** y **F1-score**, para validar el rendimiento del sistema propuesto.
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+# Sección III: Resultados y Discusión
+st.markdown("<h2 style='text-align: center;'>III. RESULTADOS Y DISCUSIÓN</h2>", unsafe_allow_html=True)
+
+# Lista de gráficos con títulos y descripciones
 graficos = [
     {
         "titulo": "Gráfico 1: Análisis de Sentimientos por Categoría de Producto",
         "archivo": "img/grafico_1.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Este gráfico representa cómo se distribuyen los sentimientos (positivos, negativos y neutros) en las distintas categorías de productos alimenticios dentro del marketplace de Amazon. 
+        Este gráfico muestra la distribución de sentimientos (positivos, negativos y neutros) dentro de distintas categorías de productos alimenticios dentro del marketplace de Amazon. 
         Nos permite identificar qué tipos de productos generan experiencias positivas y cuáles están asociados a valoraciones críticas.
 
         Este tipo de análisis es fundamental para que los proveedores comprendan las percepciones de los consumidores y prioricen mejoras según los segmentos más débiles en satisfacción. 
@@ -90,13 +121,7 @@ graficos = [
     {
         "titulo": "Gráfico 6: Conclusión General del Proyecto",
         "archivo": "img/grafico_6.png",
-        "descripcion": """
-        <div style='text-align: justify;'>
-        Este gráfico resume visualmente la conclusión general del proyecto. A partir del análisis exploratorio, modelado supervisado y generación de embeddings, se consolidan los hallazgos más relevantes del estudio.
-
-        Representa la síntesis del impacto del clustering y la clasificación de opiniones sobre productos en plataformas e-commerce, marcando un camino hacia la automatización de análisis emocional a escala comercial.
-        </div>
-        """
+        "descripcion": None  # Sin descripción, solo imagen decorativa
     }
 ]
 
