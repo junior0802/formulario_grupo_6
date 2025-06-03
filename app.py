@@ -13,15 +13,25 @@ st.set_page_config(
 ucv_logo_path = "img/ucv_logo.png"
 amazon_logo_path = "img/amazon_logo.png"
 
-st.markdown("""
-<div style='text-align: center;'>
-    <img src='img/ucv_logo.png' width='120'><br>
-    <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
-    <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
-    <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
-    <img src='img/amazon_logo.png' width='70'>
-</div>
-""", unsafe_allow_html=True)
+# Mostrar logos e información centrada
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col1:
+    if os.path.exists(ucv_logo_path):
+        st.image(ucv_logo_path, width=120)
+
+with col2:
+    st.markdown("""
+    <div style='text-align: center;'>
+        <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
+        <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+        <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    if os.path.exists(amazon_logo_path):
+        st.image(amazon_logo_path, width=70)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
