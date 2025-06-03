@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 import os
 
 # Configurar página
@@ -23,19 +24,17 @@ st.markdown("""
     display: block;
 }
 .text-ucv {
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
-    color: #1A1A1A;
     margin: 10px 0 5px 0;
 }
 .text-escuela {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 600;
-    color: #1A1A1A;
     margin: 0 0 20px 0;
 }
 .title-principal {
-    font-size: 36px;
+    font-size: 50px;
     font-weight: 800;
     color: #4A90E2;
     margin-top: 20px;
