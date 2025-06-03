@@ -2,17 +2,21 @@ import streamlit as st
 from PIL import Image
 import os
 
-# Configurar página
+# Configuración de página
 st.set_page_config(
     page_title="Clustering de Reseñas - AMAZON",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# Cabecera con logo y título
+# Título y logo
 col1, col2 = st.columns([6, 1])
 with col1:
-    st.markdown("<h1 style='color:#4A90E2;'>📊 Clustering de Reseñas de Productos en E-Commerce con datos reales – AMAZON</h1>", unsafe_allow_html=True)
+    st.markdown("""
+<h1 style='text-align: center; color:#4A90E2; font-size: 30px;'>
+📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON
+</h1>
+""", unsafe_allow_html=True)
 with col2:
     logo_path = "img/amazon_logo.png"
     if os.path.exists(logo_path):
@@ -20,95 +24,103 @@ with col2:
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# Lista de gráficos
+# Lista de gráficos con títulos y descripciones extendidas
 graficos = [
     {
+        "titulo": "Gráfico 1: Análisis de Sentimientos por Categoría de Producto",
         "archivo": "img/grafico_1.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Este gráfico muestra la distribución de sentimientos (positivos, negativos y neutros) dentro de distintas categorías de productos en Amazon. 
-        Su análisis permite descubrir patrones emocionales vinculados a la naturaleza del producto, lo cual resulta esencial para identificar fortalezas y debilidades percibidas por los usuarios.
+        Este gráfico representa cómo se distribuyen los sentimientos (positivos, negativos y neutros) en las distintas categorías de productos alimenticios dentro del marketplace de Amazon. 
+        Nos permite identificar qué tipos de productos generan experiencias positivas y cuáles están asociados a valoraciones críticas.
 
-        A través de esta visualización, se pueden tomar decisiones más informadas sobre cuáles categorías requieren mayor atención o mejora. También sirve como insumo para estrategias de marketing específicas según la percepción del cliente.
+        Este tipo de análisis es fundamental para que los proveedores comprendan las percepciones de los consumidores y prioricen mejoras según los segmentos más débiles en satisfacción. 
+        Asimismo, es útil para diseñar campañas focalizadas por categoría emocionalmente más aceptada.
         </div>
         """
     },
     {
+        "titulo": "Gráfico 2: Palabras Clave en Reseñas Positivas",
         "archivo": "img/grafico_2.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Este gráfico ilustra las palabras más frecuentes encontradas en las reseñas positivas. El análisis de frecuencia semántica permite identificar los aspectos más valorados por los consumidores, como sabor, calidad, rapidez de entrega o presentación del producto.
+        Aquí se muestran las palabras más frecuentes en reseñas con calificaciones altas (4 y 5 estrellas), obtenidas mediante un análisis de frecuencias de texto. 
+        Palabras como “sabor”, “natural”, “entrega rápida” o “presentación” son indicadores directos de atributos bien valorados.
 
-        Al conocer estos patrones lingüísticos, las marcas pueden reforzar estos atributos en sus estrategias de producto o comunicación, alineando mejor la oferta con las expectativas reales del usuario.
+        Estas palabras clave son esenciales para optimizar la estrategia comercial, ya que permiten reforzar los elementos percibidos como ventajas competitivas en las futuras campañas de producto o branding.
         </div>
         """
     },
     {
+        "titulo": "Gráfico 3: Evaluación del Modelo de Clasificación Stacking",
         "archivo": "img/grafico_3.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Aquí se muestra el desempeño del modelo de clasificación basado en Stacking, una técnica que combina múltiples algoritmos para obtener un rendimiento más robusto. 
-        Se presentan métricas como precisión, recall y F1-score frente a modelos individuales.
+        Este gráfico compara el rendimiento del modelo de clasificación basado en Stacking frente a algoritmos tradicionales como Naive Bayes o SVM. 
+        Stacking logra un mayor equilibrio entre las métricas de precisión, recall y F1-score.
 
-        El resultado evidencia que el modelo ensamblado ofrece un balance más sólido, permitiendo clasificaciones más confiables en escenarios de reseñas reales y desbalanceadas.
+        El resultado sugiere que usar un enfoque de ensamblaje puede ser una estrategia sólida para sistemas reales que manejan lenguaje natural ruidoso, como las reseñas de usuarios.
         </div>
         """
     },
     {
+        "titulo": "Gráfico 4: Embeddings de Reseñas en Espacio Reducido",
         "archivo": "img/grafico_4.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Esta visualización muestra cómo se agrupan semánticamente las reseñas en un espacio reducido de dimensiones (por ejemplo, mediante t-SNE o PCA). 
-        Las reseñas similares aparecen cercanas entre sí, revelando estructuras latentes que no son evidentes a simple vista.
+        Mediante técnicas de reducción de dimensionalidad (como t-SNE), este gráfico proyecta los embeddings de las reseñas para visualizar cómo se agrupan semánticamente. 
+        Los puntos cercanos indican reseñas con contenido temático similar.
 
-        Este tipo de análisis es clave para validar que el modelo lingüístico capta las relaciones entre términos y temas, ayudando a mejorar la calidad de los embeddings y su aplicabilidad a clustering.
+        Esta vista ofrece evidencia visual del buen funcionamiento del modelo de lenguaje, permitiendo usar estos vectores para clustering no supervisado o segmentación de clientes según estilo de reseña.
         </div>
         """
     },
     {
+        "titulo": "Gráfico 5: Comparación Global de Modelos Clasificadores",
         "archivo": "img/grafico_5.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Se presenta una comparación entre diversos modelos de clasificación utilizados en el estudio: Naive Bayes, SVM, Random Forest y Stacking. 
-        Cada uno fue evaluado bajo las mismas condiciones y métricas estándar.
+        Se comparan diversos algoritmos de clasificación aplicados a sentimientos de reseñas: Naive Bayes, SVM, Random Forest y Stacking. 
+        Las métricas muestran el desempeño bajo condiciones iguales de prueba, destacando a Stacking por su precisión y adaptabilidad.
 
-        El análisis final muestra que el modelo Stacking logra superar a los demás tanto en precisión como en capacidad de generalización, destacándose como el mejor candidato para implementaciones reales en comercio electrónico.
+        Esta visualización facilita elegir el mejor enfoque para aplicaciones reales de análisis de opinión, ofreciendo soporte empírico para justificar decisiones técnicas.
         </div>
         """
     },
     {
+        "titulo": "Gráfico 6: Conclusión General del Proyecto",
         "archivo": "img/grafico_6.png",
         "descripcion": """
         <div style='text-align: justify;'>
-        Este gráfico representa la conclusión general del proyecto, integrando los resultados de clustering, embeddings, análisis de sentimiento y desempeño de modelos.
-        Resume visualmente las predicciones logradas y cómo se distribuyen en función del aprendizaje automático aplicado.
+        Este gráfico resume visualmente la conclusión general del proyecto. A partir del análisis exploratorio, modelado supervisado y generación de embeddings, se consolidan los hallazgos más relevantes del estudio.
 
-        La conclusión permite identificar con claridad el valor que aporta este sistema inteligente para segmentar, comprender y anticipar las opiniones de los usuarios en plataformas como Amazon.
+        Representa la síntesis del impacto del clustering y la clasificación de opiniones sobre productos en plataformas e-commerce, marcando un camino hacia la automatización de análisis emocional a escala comercial.
         </div>
         """
     }
 ]
 
 # Selector
-opciones = [f"Gráfico {i+1}" for i in range(len(graficos))]
+opciones = [f"{i+1}. {g['titulo']}" for i, g in enumerate(graficos)]
 seleccion = st.selectbox("📁 Selecciona un gráfico para visualizar:", opciones)
 indice = opciones.index(seleccion)
 
-# Mostrar imagen
+# Mostrar gráfico
 ruta = graficos[indice]["archivo"]
 if os.path.exists(ruta):
-    img = Image.open(ruta)
-    st.image(img, use_container_width=True)
+    st.image(Image.open(ruta), use_container_width=True)
 else:
     st.warning("⚠️ No se encontró la imagen.")
 
-# Descripción justificada
-st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
+# Mostrar título y descripción
+st.markdown(f"### {graficos[indice]['titulo']}")
+if graficos[indice]["descripcion"]:
+    st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # Footer
 st.markdown(
-    "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • UCV</p>",
+    "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>",
     unsafe_allow_html=True
 )
