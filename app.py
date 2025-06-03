@@ -9,19 +9,22 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Logo y encabezado centrado
-ucv_logo_path = "img/ucv_logo.png"
-amazon_logo_path = "img/amazon_logo.png"
-
-st.markdown("""
-<div style='text-align: center;'>
-    <img src='img/ucv_logo.png' width='120'><br>
-    <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
-    <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
-    <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
-    <img src='img/amazon_logo.png' width='70'>
-</div>
-""", unsafe_allow_html=True)
+# Logos y encabezado (centrado)
+col1, col2, col3 = st.columns([1, 4, 1])
+with col1:
+    if os.path.exists("img/ucv_logo.png"):
+        st.image("img/ucv_logo.png", width=100)
+with col2:
+    st.markdown("""
+    <div style='text-align: center;'>
+        <h1 style='color:#4A90E2; font-size: 26px;'>UNIVERSIDAD CÉSAR VALLEJO</h1>
+        <h2 style='font-size: 22px;'>ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
+        <h3 style='font-size: 20px; color:#4A90E2;'>📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h3>
+    </div>
+    """, unsafe_allow_html=True)
+with col3:
+    if os.path.exists("img/amazon_logo.png"):
+        st.image("img/amazon_logo.png", width=70)
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -179,13 +182,7 @@ Estas capacidades pueden ser implementadas en sistemas reales para apoyar la tom
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# Footer
-st.markdown(
-    "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>",
-    unsafe_allow_html=True
-)
-
-# Agradecimiento + Autores, Asesores y Año (centrado con emojis)
+# Agradecimientos
 st.markdown("""
 <div style="text-align: center; font-family: Arial, sans-serif; margin-top: 50px;">
 
@@ -212,3 +209,9 @@ st.markdown("""
 
 </div>
 """, unsafe_allow_html=True)
+
+# Footer
+st.markdown(
+    "<p style='text-align: center; color: gray;'>Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo</p>",
+    unsafe_allow_html=True
+)
