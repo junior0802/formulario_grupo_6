@@ -9,6 +9,10 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# Mostrar logo UCV (centrado y con ancho ajustado)
+st.image("img/ucv_logo.png", use_container_width=True)
+
+# Títulos con animación y tamaños específicos, en el orden que quieres
 st.markdown("""
 <style>
 @keyframes fadeInUp {
@@ -22,13 +26,13 @@ st.markdown("""
   }
 }
 
-.animated-title {
-  font-size: 90px;  /* Muy grande */
-  font-weight: 900;
+.animated-subsubtitle {
+  font-size: 60px;
+  font-weight: 700;
   text-align: center;
-  color: #4A90E2;
-  animation: fadeInUp 1.5s ease forwards;
-  margin: 0;
+  color: #222222;
+  animation: fadeInUp 1s ease forwards;
+  margin: 10px 0 0 0;
 }
 
 .animated-subtitle {
@@ -36,23 +40,23 @@ st.markdown("""
   font-weight: 800;
   text-align: center;
   color: #222222;
-  animation: fadeInUp 1.8s ease forwards;
-  margin: 0;
+  animation: fadeInUp 1.5s ease forwards;
+  margin: 10px 0 0 0;
 }
 
-.animated-subsubtitle {
-  font-size: 60px;
-  font-weight: 700;
+.animated-title {
+  font-size: 90px;
+  font-weight: 900;
   text-align: center;
-  color: #222222;
-  animation: fadeInUp 2.1s ease forwards;
-  margin: 0 0 40px 0;
+  color: #4A90E2;
+  animation: fadeInUp 2s ease forwards;
+  margin: 30px 0 40px 0;
 }
 </style>
 
+<h3 class="animated-subsubtitle">UNIVERSIDAD CÉSAR VALLEJO</h3>
+<h2 class="animated-subtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h2>
 <h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h1>
-<h2 class="animated-subtitle">UNIVERSIDAD CÉSAR VALLEJO</h2>
-<h3 class="animated-subsubtitle">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS</h3>
 """, unsafe_allow_html=True)
 
 st.markdown("<hr>", unsafe_allow_html=True)
