@@ -2,18 +2,26 @@ import streamlit as st
 from PIL import Image
 import os
 
-# Configurar página
+# Configuración de página
 st.set_page_config(
     page_title="GRUPO 6",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
 
-# Control de estado para mostrar primero la animación
+# Inicializar estado si no existe
 if "mostrar_formulario" not in st.session_state:
     st.session_state.mostrar_formulario = False
 
-# Simulación de "subir archivo"
+if "archivo_subido" not in st.session_state:
+    st.session_state.archivo_subido = None
+
+# Función para volver a la pantalla de carga
+def volver_a_carga():
+    st.session_state.mostrar_formulario = False
+    st.session_state.archivo_subido = None
+
+# Pantalla inicial: carga de archivo
 if not st.session_state.mostrar_formulario:
     st.markdown("""
     <style>
@@ -27,8 +35,8 @@ if not st.session_state.mostrar_formulario:
         font-weight: bold;
         color: #4A90E2;
         animation: fadeIn 1.5s ease-in-out;
+        margin-bottom: 20px;
     }
-
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
@@ -36,18 +44,22 @@ if not st.session_state.mostrar_formulario:
     </style>
 
     <div class="upload-box">
-        📂 Arrastra aquí tu archivo para iniciar<br><br>
-        (Simulación visual)
+        📂 Arrastra y suelta tu archivo aquí o selecciónalo abajo
     </div>
     """, unsafe_allow_html=True)
 
-    if st.button("✅ Simular carga y continuar"):
-        st.session_state.mostrar_formulario = True
-        st.experimental_rerun()
+    archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
+
+    if st.button("✅ Continuar con el formulario"):
+        if archivo is not None:
+            st.session_state.archivo_subido = archivo
+            st.session_state.mostrar_formulario = True
+            st.experimental_rerun()
+        else:
+            st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
 
 else:
-
-    # Títulos con animación y tamaños específicos, en el orden que quieres
+    # Título animado
     st.markdown("""
     <style>
     @keyframes fadeInUp {
@@ -60,34 +72,26 @@ else:
         transform: translate3d(0, 0, 0);
       }
     }
-    
-    .animated-subtitle {
-      font-size: 70px;
-      font-weight: 800;
-      text-align: center;
-      color: #222222;
-      animation: fadeInUp 1.5s ease forwards;
-      margin: 10px 0 0 0;
-    }
-    
     .animated-title {
-      font-size: 90px;
+      font-size: 80px;
       font-weight: 900;
       text-align: center;
       color: #4A90E2;
-      animation: fadeInUp 2s ease forwards;
-      margin: 30px 0 40px 0;
+      animation: fadeInUp 1.5s ease forwards;
+      margin: 20px 0 30px 0;
     }
     </style>
-    
-    <h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN E-COMMERCE CON DATOS REALES – AMAZON</h1>
+
+    <h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN AMAZON</h1>
     """, unsafe_allow_html=True)
-    
+
     st.markdown("<hr>", unsafe_allow_html=True)
-    
-    # Resultados y Discusión
     st.markdown("<h2 style='text-align: center;'>RESULTADOS Y DISCUSIÓN</h2>", unsafe_allow_html=True)
+
+    # Botón para volver
+    st.button("🔙 Volver a carga de archivo", on_click=volver_a_carga)
     
+    # CONTENIDO VISUAL CON SELECTBOX
     graficos = [
         {
             "titulo": "Gráfico 1: Análisis de Sentimientos por Categoría de Producto",
@@ -151,47 +155,44 @@ else:
         }
     ]
     
-    # Selector
-    opciones = [f"{i+1}. {g['titulo']}" for i, g in enumerate(graficos)]
+     opciones = [f"{i+1}. {g['titulo']}" for i, g in enumerate(graficos)]
     seleccion = st.selectbox("📁 Selecciona un gráfico para visualizar:", opciones)
     indice = opciones.index(seleccion)
-    
-    # Mostrar gráfico
+
     ruta = graficos[indice]["archivo"]
     if os.path.exists(ruta):
         st.image(Image.open(ruta), use_container_width=True)
     else:
         st.warning("⚠️ No se encontró la imagen.")
-    
-    # Mostrar título centrado
+
     st.markdown(f"<h3 style='text-align: center;'>{graficos[indice]['titulo']}</h3>", unsafe_allow_html=True)
     st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
-    
+
     st.markdown("<hr>", unsafe_allow_html=True)
-    
-    # Sección Agradecimientos
+
+    # Agradecimientos
     st.markdown("""
     <hr>
     <p style='font-size:18px; text-align:center;'>
-        <span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores por su guía y acompañamiento durante el desarrollo de esta investigación.</em>
+        <span style='font-size:24px;'>🙏</span> <em>Agradecemos profundamente a nuestros docentes y asesores...</em>
     </p>
-    
+
     <h4 style='text-align:center;'>✍️ <u>AUTORES</u></h4>
     <p style='text-align:center;'>
-        👨‍💻 <b>Junior Alvaro Pusaclla</b><br>
-        👨‍💻 <b>Luis Atiro Vargas</b><br>
-        👩‍💻 <b>Carmen Campos Domínguez</b><br>
-        👨‍💻 <b>Cleber Ramos Ramos</b>
+        👨‍💻 <b>Alvaro Pusaclla, Junior</b><br>
+        👨‍💻 <b>Atiro Vargas, Luis</b><br>
+        👩‍💻 <b>Campos Domínguez, Carmen</b><br>
+        👨‍💻 <b>Ramos Ramos, Cleber</b>
     </p>
-    
+
     <h4 style='text-align:center;'>🧑‍🏫 <u>ASESORES</u></h4>
     <p style='text-align:center;'>
-        🧠 <b>Dr. Jorge Isaac Necochea Chamorro</b><br>
-        🧠 <b>Mg. Marco Antonio Soto Martínez</b>
+        🧠 <b>Dr. Necochea Chamorro, Jorge Isaac</b><br>
+        🧠 <b>Mg. Soto Martínez, Marco Antonio</b>
     </p>
-    
+
     <p style='text-align:center; color: gray; font-size: 16px;'>📍 Lima – Perú • 🗓️ 2025</p>
-    
+
     <hr>
     <p style='text-align:center; color: gray; font-size: 16px; margin-top: 40px;'>
         Grupo 6 • Escuela Profesional de Ingeniería de Sistemas • Universidad César Vallejo
