@@ -9,6 +9,44 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# Control de estado para mostrar primero la animación
+if "mostrar_formulario" not in st.session_state:
+    st.session_state.mostrar_formulario = False
+
+# Simulación de "subir archivo"
+if not st.session_state.mostrar_formulario:
+    st.markdown("""
+    <style>
+    .upload-box {
+        border: 3px dashed #4A90E2;
+        padding: 60px;
+        border-radius: 20px;
+        text-align: center;
+        background-color: #f7faff;
+        font-size: 20px;
+        font-weight: bold;
+        color: #4A90E2;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+
+    <div class="upload-box">
+        📂 Arrastra aquí tu archivo para iniciar<br><br>
+        (Simulación visual)
+    </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("✅ Simular carga y continuar"):
+        st.session_state.mostrar_formulario = True
+        st.experimental_rerun()
+
+else:
+
 # Títulos con animación y tamaños específicos, en el orden que quieres
 st.markdown("""
 <style>
