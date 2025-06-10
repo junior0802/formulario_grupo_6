@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import os
+import time
 
 # Configuración de página
 st.set_page_config(
@@ -55,6 +56,31 @@ if not st.session_state.mostrar_formulario:
             st.session_state.archivo_subido = archivo
             st.session_state.mostrar_formulario = True
             st.experimental_rerun()
+
+            espacio_carga = st.empty()
+            
+            mensajes = [
+                "⏳ Un momento, preparando el entorno...",
+                "📊 Analizando el archivo...",
+                "🔍 Extrayendo información clave...",
+                "🧠 Aplicando modelos de clustering...",
+                "🚀 Ya falta poco, afinando resultados..."
+            ]
+            
+            for mensaje in mensajes:
+                with espacio_carga.container():
+                    st.markdown(f"""
+                    <div style='text-align: center; font-size: 24px; color: #4A90E2; font-weight: bold;'>
+                        📈 {mensaje}
+                    </div>
+                    """, unsafe_allow_html=True)
+                    time.sleep(2)  # Cada mensaje dura 2 segundos (5x2 = 10 segundos)
+            
+            # Al finalizar, cambiar el estado
+            st.session_state.archivo_subido = archivo
+            st.session_state.mostrar_formulario = True
+            st.experimental_rerun()
+        
         else:
             st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
 
