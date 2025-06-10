@@ -104,7 +104,7 @@ if not st.session_state.mostrar_formulario:
                 ">
                     <div>{mensaje}</div>
                     <div style="font-size: 26px; margin-top: 10px;">
-                        Cargando {porcentaje_carga}% {puntos}
+                        Cargando {porcentaje_carga}%
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
