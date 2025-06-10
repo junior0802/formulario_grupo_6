@@ -51,32 +51,35 @@ if not st.session_state.mostrar_formulario:
 
     if st.button("✅ Analizar archivo"):
         if archivo is not None:
-            espacio_carga = st.empty()
+            espacio_modal = st.empty()
+            espacio_progreso = st.empty()
     
-            # Mostrar modal de carga inicial
-            with espacio_carga.container():
+            # Modal de análisis (encabezado)
+            with espacio_modal.container():
                 st.markdown("""
                 <div style="
                     background-color: #ffffff;
-                    padding: 40px;
-                    border-radius: 20px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                    padding: 50px;
+                    border-radius: 25px;
+                    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
                     text-align: center;
-                    font-size: 20px;
-                    color: #4A90E2;
+                    font-size: 28px;
                     font-weight: bold;
-                    animation: fadeIn 1.5s ease-in-out;
+                    color: #3475db;
+                    animation: fadeIn 1s ease-in-out;
+                    margin-bottom: 30px;
                 ">
-                    <p>⏳ Analizando archivo...</p>
+                    ⏳ <span style="font-size: 30px;">Analizando archivo...</span>
                 </div>
                 """, unsafe_allow_html=True)
     
+            # Lista de mensajes con progreso
             mensajes = [
-                "📊 Leyendo estructura del archivo...",
-                "🔍 Extrayendo información clave...",
-                "📈 Ejecutando modelo Stacking...",
-                "🧠 Generando resultados y visualizaciones...",
-                "🚀 Preparando entorno de resultados..."
+                "📊 Leyendo estructura del archivo",
+                "🔍 Extrayendo información clave",
+                "📈 Ejecutando modelo Stacking",
+                "🧠 Generando resultados y visualizaciones",
+                "🚀 Preparando entorno de resultados"
             ]
     
             porcentaje_carga = 0
@@ -84,27 +87,30 @@ if not st.session_state.mostrar_formulario:
     
             for i, mensaje in enumerate(mensajes):
                 porcentaje_carga += paso
-                puntos = "." * ((i + 1) * 3)
-                espacio_carga.markdown(f"""
+                puntos = "." * (i + 3)
+    
+                espacio_progreso.markdown(f"""
                 <div style="
-                    background-color: #ffffff;
-                    padding: 30px;
-                    border-radius: 15px;
-                    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+                    background-color: #eef5ff;
+                    padding: 35px;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
                     text-align: center;
-                    font-size: 18px;
-                    color: #4A90E2;
+                    font-size: 22px;
                     font-weight: bold;
-                    margin-top: 20px;
+                    color: #2b61c0;
+                    margin-bottom: 15px;
                     animation: fadeIn 1s ease-in-out;
                 ">
-                    <p>{mensaje}</p>
-                    <p>Cargando {porcentaje_carga}% {puntos}</p>
+                    <div>{mensaje}</div>
+                    <div style="font-size: 26px; margin-top: 10px;">
+                        Cargando {porcentaje_carga}% {puntos}
+                    </div>
                 </div>
                 """, unsafe_allow_html=True)
                 time.sleep(2)
     
-            # Finaliza y pasa al siguiente estado
+            # Avanzar al formulario
             st.session_state.archivo_subido = archivo
             st.session_state.mostrar_formulario = True
             st.rerun()
