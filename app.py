@@ -23,29 +23,6 @@ def volver_a_carga():
 
 # 🟡 Pantalla inicial: carga de archivo
 if not st.session_state.mostrar_formulario:
-    st.markdown("""
-    <style>
-    .upload-box {
-        border: 3px dashed #4A90E2;
-        padding: 60px;
-        border-radius: 20px;
-        text-align: center;
-        background-color: #f7faff;
-        font-size: 20px;
-        font-weight: bold;
-        color: #4A90E2;
-        animation: fadeIn 1.5s ease-in-out;
-        margin-bottom: 20px;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    </style>
-    <div class="upload-box">
-        📂 Arrastra y suelta tu archivo aquí o selecciónalo abajo
-    </div>
-    """, unsafe_allow_html=True)
 
     archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
 
