@@ -50,60 +50,60 @@ if not st.session_state.mostrar_formulario:
     archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
 
     if st.button("✅ Analizar archivo"):
-    if archivo is not None:
-        espacio_carga = st.empty()
-
-        # Simula una ventana emergente tipo modal
-        with espacio_carga.container():
-            st.markdown("""
-            <div style="
-                background-color: #ffffff;
-                padding: 40px;
-                border-radius: 20px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                text-align: center;
-                font-size: 20px;
-                color: #4A90E2;
-                font-weight: bold;
-                animation: fadeIn 1.5s ease-in-out;
-            ">
-                <p>⏳ Analizando archivo...</p>
-            </div>
-            """, unsafe_allow_html=True)
-
-        mensajes = [
-            "📊 Leyendo estructura del archivo...",
-            "🔍 Extrayendo información clave...",
-            "📈 Ejecutando modelo Stacking...",
-            "🧠 Generando resultados y visualizaciones...",
-            "🚀 Preparando entorno de resultados..."
-        ]
-
-        for mensaje in mensajes:
-            espacio_carga.markdown(f"""
-            <div style="
-                background-color: #ffffff;
-                padding: 40px;
-                border-radius: 20px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                text-align: center;
-                font-size: 20px;
-                color: #4A90E2;
-                font-weight: bold;
-                animation: fadeIn 1s ease-in-out;
-                margin-top: 20px;
-            ">
-                {mensaje}
-            </div>
-            """, unsafe_allow_html=True)
-            time.sleep(2)
-
-        # Al finalizar, avanzar al formulario
-        st.session_state.archivo_subido = archivo
-        st.session_state.mostrar_formulario = True
-        st.rerun()
-    else:
-        st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
+        if archivo is not None:
+            espacio_carga = st.empty()
+    
+            # Simula una ventana emergente tipo modal
+            with espacio_carga.container():
+                st.markdown("""
+                <div style="
+                    background-color: #ffffff;
+                    padding: 40px;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                    text-align: center;
+                    font-size: 20px;
+                    color: #4A90E2;
+                    font-weight: bold;
+                    animation: fadeIn 1.5s ease-in-out;
+                ">
+                    <p>⏳ Analizando archivo...</p>
+                </div>
+                """, unsafe_allow_html=True)
+    
+            mensajes = [
+                "📊 Leyendo estructura del archivo...",
+                "🔍 Extrayendo información clave...",
+                "📈 Ejecutando modelo Stacking...",
+                "🧠 Generando resultados y visualizaciones...",
+                "🚀 Preparando entorno de resultados..."
+            ]
+    
+            for mensaje in mensajes:
+                espacio_carga.markdown(f"""
+                <div style="
+                    background-color: #ffffff;
+                    padding: 40px;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                    text-align: center;
+                    font-size: 20px;
+                    color: #4A90E2;
+                    font-weight: bold;
+                    animation: fadeIn 1s ease-in-out;
+                    margin-top: 20px;
+                ">
+                    {mensaje}
+                </div>
+                """, unsafe_allow_html=True)
+                time.sleep(2)
+    
+            # Al finalizar, avanzar al formulario
+            st.session_state.archivo_subido = archivo
+            st.session_state.mostrar_formulario = True
+            st.rerun()
+        else:
+            st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
 
 else:
     # ✅ FORMULARIO Y VISUALIZACIONES
