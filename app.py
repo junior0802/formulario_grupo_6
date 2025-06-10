@@ -53,7 +53,7 @@ if not st.session_state.mostrar_formulario:
         if archivo is not None:
             espacio_carga = st.empty()
     
-            # Simula una ventana emergente tipo modal
+            # Mostrar modal de carga inicial
             with espacio_carga.container():
                 st.markdown("""
                 <div style="
@@ -79,26 +79,32 @@ if not st.session_state.mostrar_formulario:
                 "🚀 Preparando entorno de resultados..."
             ]
     
-            for mensaje in mensajes:
+            porcentaje_carga = 0
+            paso = 20
+    
+            for i, mensaje in enumerate(mensajes):
+                porcentaje_carga += paso
+                puntos = "." * ((i + 1) * 3)
                 espacio_carga.markdown(f"""
                 <div style="
                     background-color: #ffffff;
-                    padding: 40px;
-                    border-radius: 20px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                    padding: 30px;
+                    border-radius: 15px;
+                    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
                     text-align: center;
-                    font-size: 20px;
+                    font-size: 18px;
                     color: #4A90E2;
                     font-weight: bold;
-                    animation: fadeIn 1s ease-in-out;
                     margin-top: 20px;
+                    animation: fadeIn 1s ease-in-out;
                 ">
-                    {mensaje}
+                    <p>{mensaje}</p>
+                    <p>Cargando {porcentaje_carga}% {puntos}</p>
                 </div>
                 """, unsafe_allow_html=True)
                 time.sleep(2)
     
-            # Al finalizar, avanzar al formulario
+            # Finaliza y pasa al siguiente estado
             st.session_state.archivo_subido = archivo
             st.session_state.mostrar_formulario = True
             st.rerun()
