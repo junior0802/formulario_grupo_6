@@ -24,7 +24,7 @@ def volver_a_carga():
 # 🟡 Pantalla inicial: carga de archivo
 if not st.session_state.mostrar_formulario:
 
-    archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
+    archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv"])
 
     if st.button("✅ Analizar archivo"):
         if archivo is not None:
