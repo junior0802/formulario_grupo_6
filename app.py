@@ -28,6 +28,10 @@ if not st.session_state.mostrar_formulario:
 
     if st.button("✅ Analizar archivo"):
         if archivo is not None:
+
+            import pandas as pd
+            df = pd.read_csv(archivo)
+    
             espacio_modal = st.empty()
             espacio_progreso = st.empty()
     
