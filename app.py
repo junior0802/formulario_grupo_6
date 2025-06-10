@@ -50,7 +50,7 @@ if not st.session_state.mostrar_formulario:
     archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
 
     if st.button("✅ Analizar archivo"):
-        if archivo is not None:
+    if archivo is not None:
         espacio_carga = st.empty()
 
         # Simula una ventana emergente tipo modal
