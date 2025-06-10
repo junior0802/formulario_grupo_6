@@ -1,2 +1,6 @@
 [server]
-maxUploadSize = 1000
+maxUploadSize = 1000  # Permite archivos de hasta 1000 MB (1 GB)
+headless = true
+port = 8501
+enableXsrfProtection = true
+# NOTA: No incluyas 'enableCORS = false' para evitar errores en plataformas como Render o Streamlit Cloud
