@@ -3,7 +3,7 @@ from PIL import Image
 import os
 import time
 
-# Configuración de página
+# Configuración de la página
 st.set_page_config(
     page_title="GRUPO 6",
     layout="centered",
@@ -13,16 +13,15 @@ st.set_page_config(
 # Inicializar estado si no existe
 if "mostrar_formulario" not in st.session_state:
     st.session_state.mostrar_formulario = False
-
 if "archivo_subido" not in st.session_state:
     st.session_state.archivo_subido = None
 
-# Función para volver a la pantalla de carga
+# Función para volver
 def volver_a_carga():
     st.session_state.mostrar_formulario = False
     st.session_state.archivo_subido = None
 
-# Pantalla inicial: carga de archivo
+# 🟡 Pantalla inicial: carga de archivo
 if not st.session_state.mostrar_formulario:
     st.markdown("""
     <style>
@@ -43,7 +42,6 @@ if not st.session_state.mostrar_formulario:
         to { opacity: 1; transform: translateY(0); }
     }
     </style>
-
     <div class="upload-box">
         📂 Arrastra y suelta tu archivo aquí o selecciónalo abajo
     </div>
@@ -51,58 +49,49 @@ if not st.session_state.mostrar_formulario:
 
     archivo = st.file_uploader("Selecciona un archivo para continuar", type=["csv", "txt", "xlsx", "json"])
 
-    if st.button("✅ Continuar con el formulario"):
+    if st.button("✅ Analizar archivo"):
         if archivo is not None:
-            espacio_carga = st.empty()
-    
-            mensajes = [
-                "⏳ Un momento, preparando el entorno...",
-                "📊 Analizando el archivo...",
-                "🔍 Extrayendo información clave...",
-                "🧠 Aplicando modelos de clustering...",
-                "🚀 Ya falta poco, afinando resultados..."
-            ]
-    
-            for mensaje in mensajes:
-                with espacio_carga.container():
-                    st.markdown(f"""
-                    <div style='text-align: center; font-size: 24px; color: #4A90E2; font-weight: bold;'>
-                        📈 {mensaje}
-                    </div>
-                    """, unsafe_allow_html=True)
-                    time.sleep(2)
-    
-            # Al finalizar, cambiar el estado
             st.session_state.archivo_subido = archivo
+
+            with st.modal("⏳ Analizando archivo..."):
+                with st.container():
+                    st.markdown("""
+                    <div style="text-align:center; font-size: 24px; color: #4A90E2; font-weight:bold;">
+                        📊 Iniciando análisis inteligente de reseñas...
+                    </div><br>
+                    """, unsafe_allow_html=True)
+
+                    mensajes = [
+                        "🔍 Cargando datos y preprocesando opiniones...",
+                        "🧠 Aplicando modelo de clasificación Stacking...",
+                        "📈 Generando visualizaciones inteligentes...",
+                        "🚀 Preparando entorno para resultados..."
+                    ]
+                    for msg in mensajes:
+                        st.info(msg)
+                        time.sleep(2)
+
             st.session_state.mostrar_formulario = True
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
-            
 else:
-    # Título animado
+    # ✅ FORMULARIO Y VISUALIZACIONES
     st.markdown("""
     <style>
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translate3d(0, 40px, 0);
-      }
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
+        from {opacity: 0; transform: translateY(40px);}
+        to {opacity: 1; transform: translateY(0);}
     }
     .animated-title {
-      font-size: 80px;
-      font-weight: 900;
-      text-align: center;
-      color: #4A90E2;
-      animation: fadeInUp 1.5s ease forwards;
-      margin: 20px 0 30px 0;
+        font-size: 80px;
+        font-weight: 900;
+        text-align: center;
+        color: #4A90E2;
+        animation: fadeInUp 1.5s ease forwards;
+        margin: 20px 0 30px 0;
     }
     </style>
-
     <h1 class="animated-title">📊 CLUSTERING DE RESEÑAS DE PRODUCTOS EN AMAZON</h1>
     """, unsafe_allow_html=True)
 
@@ -111,8 +100,8 @@ else:
 
     # Botón para volver
     st.button("🔙 Volver a carga de archivo", on_click=volver_a_carga)
-    
-    # CONTENIDO VISUAL CON SELECTBOX
+
+    # GESTIÓN DE GRÁFICOS
     graficos = [
         {
             "titulo": "Gráfico 1: Análisis de Sentimientos por Categoría de Producto",
@@ -188,8 +177,6 @@ else:
 
     st.markdown(f"<h3 style='text-align: center;'>{graficos[indice]['titulo']}</h3>", unsafe_allow_html=True)
     st.markdown(graficos[indice]["descripcion"], unsafe_allow_html=True)
-
-    st.markdown("<hr>", unsafe_allow_html=True)
 
     # Agradecimientos
     st.markdown("""
