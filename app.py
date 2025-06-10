@@ -104,6 +104,7 @@ if not st.session_state.mostrar_formulario:
         st.rerun()
     else:
         st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
+
 else:
     # ✅ FORMULARIO Y VISUALIZACIONES
     st.markdown("""
