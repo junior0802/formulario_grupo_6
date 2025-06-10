@@ -53,12 +53,8 @@ if not st.session_state.mostrar_formulario:
 
     if st.button("✅ Continuar con el formulario"):
         if archivo is not None:
-            st.session_state.archivo_subido = archivo
-            st.session_state.mostrar_formulario = True
-            st.experimental_rerun()
-
             espacio_carga = st.empty()
-            
+    
             mensajes = [
                 "⏳ Un momento, preparando el entorno...",
                 "📊 Analizando el archivo...",
@@ -66,7 +62,7 @@ if not st.session_state.mostrar_formulario:
                 "🧠 Aplicando modelos de clustering...",
                 "🚀 Ya falta poco, afinando resultados..."
             ]
-            
+    
             for mensaje in mensajes:
                 with espacio_carga.container():
                     st.markdown(f"""
@@ -74,16 +70,15 @@ if not st.session_state.mostrar_formulario:
                         📈 {mensaje}
                     </div>
                     """, unsafe_allow_html=True)
-                    time.sleep(2)  # Cada mensaje dura 2 segundos (5x2 = 10 segundos)
-            
+                    time.sleep(2)
+    
             # Al finalizar, cambiar el estado
             st.session_state.archivo_subido = archivo
             st.session_state.mostrar_formulario = True
             st.experimental_rerun()
-        
         else:
             st.warning("⚠️ Por favor, selecciona un archivo para continuar.")
-
+            
 else:
     # Título animado
     st.markdown("""
@@ -181,7 +176,7 @@ else:
         }
     ]
     
-     opciones = [f"{i+1}. {g['titulo']}" for i, g in enumerate(graficos)]
+    opciones = [f"{i+1}. {g['titulo']}" for i, g in enumerate(graficos)]
     seleccion = st.selectbox("📁 Selecciona un gráfico para visualizar:", opciones)
     indice = opciones.index(seleccion)
 
